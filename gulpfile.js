@@ -226,7 +226,13 @@ function watchFiles() {
 const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts));
 const watch = gulp.parallel(build, watchFiles, serve);
 
+/* GitHub Pages */
+let ghPages = require('gulp-gh-pages');
 
+gulp.task('deploy', function() {
+    return gulp.src('./build/**/*')
+        .pipe(ghPages());
+});
 
 /* Exports Tasks */
 exports.html = html;
