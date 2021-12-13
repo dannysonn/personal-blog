@@ -11,7 +11,6 @@ const cssnano = require("gulp-cssnano");
 const uglify = require("gulp-uglify");
 const plumber = require("gulp-plumber");
 const panini = require("panini");
-const image = require("gulp-image");
 const del = require("del");
 const notify = require("gulp-notify");
 const webpack = require('webpack');
@@ -185,16 +184,6 @@ function jsWatch(cb) {
 
 function images(cb) {
     return src(path.src.images)
-        .pipe(image({
-            pngquant: true,
-            optipng: false,
-            zopflipng: true,
-            jpegRecompress: false,
-            mozjpeg: true,
-            gifsicle: true,
-            svgo: true,
-            concurrent: 10
-        }))
         .pipe(dest(path.build.images))
         .pipe(browserSync.reload({stream: true}));
 
@@ -226,13 +215,7 @@ function watchFiles() {
 const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts));
 const watch = gulp.parallel(build, watchFiles, serve);
 
-/* GitHub Pages */
-let ghPages = require('gulp-gh-pages');
 
-gulp.task('deploy', function() {
-    return gulp.src('./dist/**/*')
-        .pipe(ghPages());
-});
 
 /* Exports Tasks */
 exports.html = html;
