@@ -230,7 +230,7 @@ const watch = gulp.parallel(build, watchFiles, serve);
 let ghPages = require('gulp-gh-pages');
 
 gulp.task('deploy', function() {
-    return gulp.src('./build/**/*')
+    return gulp.src('./dist/**/*')
         .pipe(ghPages());
 });
 
