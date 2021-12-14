@@ -53,8 +53,12 @@
 }
 
 .post__text {
+  padding-bottom: 1rem;
+
   font-size: 1.4rem;
   color: $white;
+
+  border-bottom: 1px solid #1C1C1C;
 
   h2, h3, h4, h5, h6 {
     margin-bottom: 2rem;
@@ -91,11 +95,6 @@
 
   a {
     color: $blue;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
   table {
@@ -126,11 +125,6 @@
 
   a {
     color: inherit;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }
 
@@ -152,11 +146,6 @@
 .post__read {
   font-size: 1.4rem;
   color: #107EFF;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 .post__actions {
@@ -170,13 +159,11 @@
 
   a {
     color: inherit;
-    text-decoration: none;
 
     opacity: 0.6;
     transition: opacity .2s linear;
 
     &:hover {
-      text-decoration: underline;
       opacity: 1;
     }
   }
@@ -185,4 +172,13 @@
 .post__actions-icon {
   vertical-align: middle;
   margin-left: .5rem;
+}
+
+.post__subtitle {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+
+  font-size: 1.6rem;
+  color: $white;
+  font-weight: 500;
 }
